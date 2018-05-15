@@ -1,0 +1,195 @@
+body {
+    font-size: 15px;
+    /*字型大小*/
+    line-height: 1.4em;
+    /*行高*/
+    font-family: Microsoft JhengHei;
+    /*字型*/
+    color: #333;
+    /*顏色設定*/
+}
+
+a {
+    color: #009ced;
+    /*連結顏色*/
+    text-decoration: none;
+}
+
+a:hover {
+    /*游標停在超連結上*/
+    color: #008ad1;
+    /*變色*/
+    text-decoration: underline;
+    /*連結有底線*/
+}
+
+.container {
+    /*頁面置中容器*/
+    width: 1000px;
+    margin: 0 auto;
+}
+
+h1.logo a {
+    /*選取器在a連結上方便使用者點圖就能回首頁*/
+    display: block;
+    /*連結區塊化*/
+    width: 320px;
+    /*指定尺寸與圖檔寬高相同*/
+    height: 150px;
+    background: url('../images/87logo.png') no-repeat;
+    white-space: nowrap;
+    /*阻止文字內容在寬度不足時換行*/
+    text-indent: 110%;
+    overflow: hidden;
+}
+
+.header .container {
+    position: relative;
+}
+
+.header .slogan {
+    position: absolute;
+    top: 20px;
+    right: 0;
+}
+
+.slogan strong {
+    font-size: 1.5em;
+    color: #ff555d;
+}
+
+.main-menu {
+    background: #ff8086;
+    margin-bottom: 20px;
+    overflow: auto;
+}
+
+.main-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.main-menu ul li {
+    float: left;
+    width: 25%;
+}
+
+.main-menu ul li a {
+    display: block;
+    padding: 10px 0;
+    text-align: center;
+    font-size: 18px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.main-menu ul li a:hover {
+    background: #ff555d;
+}
+
+.left-side {
+    width: 140px;
+    float: left;
+    padding-bottom: 30px;
+}
+
+.main {
+    width: 700px;
+    float: left;
+    padding-bottom: 30px;
+}
+
+.right-side {
+    width: 130px;
+    float: right;
+    padding-bottom: 30px;
+}
+
+.footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0 40px;
+    clear: both;
+}
+
+.headline {
+    border: #ddd 1px solid;
+    padding: 10px 10px 10px 220px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    line-height: 1.5em;
+    position: relative;
+    min-height: 150px;
+}
+
+.headline img {
+    position: absolute;
+    left: 10px;
+}
+
+.headline h2 {
+    margin-top: 0;
+    font-size: 1.5em;
+}
+
+.headline .more {
+    display: block;
+    text-align: right;
+}
+
+ul.news-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.news {
+    box-sizing: border-box;
+    width: 340px;
+    height: 250px;
+    overflow: hidden;
+    border: #ddd 1px solid;
+    padding: 10px;
+    margin-bottom: 20px;
+    float: left;
+}
+
+.news:nth-child(odd) {
+    margin-right: 20px;
+}
+
+.news h2 {
+    margin-top: 0;
+    line-height: 1.2em;
+}
+
+.news .img {
+    float: left;
+    margin: 0 10px 10px 0;
+}
+
+.side-title {
+    padding-bottom: 4px;
+    border-bottom: #ff555d 4px solid;
+}
+
+.top-news {
+    padding-left: 30px;
+}
+
+.top-news li {
+    line-height: 1.5em;
+    padding-bottom: 5px;
+}
+
+a.back-top {
+    position: fixed;
+    bottom: 150px;
+    right: 0;
+    background: #ff8086;
+    padding: 10px 20px;
+    font-size: 2em;
+    color: #fff;
+}

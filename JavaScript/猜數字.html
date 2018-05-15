@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>guess number</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-4 text-center">
+
+            </div>
+            <div class="col-4 text-center">
+                <button type="button" class="btn btn-warning btn-block" id="startgame">開始遊戲</button>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">請輸入四個數字</span>
+                    </div>
+                    <input type="text" class="form-control" placeholder="number..." aria-label="Username" aria-describedby="basic-addon1" id="guessnumbers">
+                </div>
+            </div>
+            <div class="col-2">
+                <button type="button" class="btn btn-outline-success btn-block" id="checknumbers">檢查答案</button>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <ul class="list-group" id="display">
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-3">
+
+            </div>
+            <div class="col-3">
+                <button type="button" class="btn btn-warning btn-block" id="reload">放棄重來</button>
+            </div>
+            <div class="col-3">
+                <button type="button" class="btn btn-warning btn-block" id="seeanswer">偷看答案</button>
+            </div>
+            <div class="col-3 ml-auto">
+
+            </div>
+        </div>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script type="text/javascript" language="javascript">
+        var start = document.getElementById("startgame");
+        var number = new Array(4);
+        start.onclick = function () {
+            do {
+                number[0] = Math.floor(Math.random() * 10);
+                number[1] = Math.floor(Math.random() * 10);
+                number[2] = Math.floor(Math.random() * 10);
+                number[3] = Math.floor(Math.random() * 10);
+            } while (number[0] == number[1] || number[0] == number[2] || number[0] == number[3] || number[1] ==
+                number[2] || number[1] == number[3] || number[2] == number[3])
+            
+        var seeanswer = document.getElementById("seeanswer");
+        seeanswer.onclick = f2;
+        var check = document.getElementById("checknumbers");
+        check.onclick = f3;
+        }
+
+
+        
+        var guess = document.getElementById("guessnumbers");
+
+        var times = 0; //次數
+        function f3() {
+            if (isNaN(guess.value) || guess.value.length != 4) {
+                return;
+            } else { //"可加可不加"
+                times++;
+                var a = 0;
+                var b = 0;
+                var intguess = parseInt(guess.value);
+                var digit = Math.floor(intguess / 1000);
+                if(digit == number[0])
+                {
+                    a++;
+                }
+                else if(digit == number[1] || digit == number[2] || digit == number[3])
+                {
+                    b++;
+                }
+                digit = Math.floor(intguess / 100) % 10;
+                if(digit == number[1])
+                {
+                    a++;
+                }
+                else if(digit == number[0] || digit == number[2] || digit == number[3])
+                {
+                    b++;
+                }
+                
+                digit = Math.floor(intguess / 10) % 10;
+                if(digit == number[2])
+                {
+                    a++;
+                }
+                else if(digit == number[0] || digit == number[1] || digit == number[3])
+                {
+                    b++;
+                }
+                digit = intguess % 10;
+                if(digit == number[3])
+                {
+                    a++;
+                }
+                else if(digit == number[0] || digit == number[1] || digit == number[2])
+                {
+                    b++;
+                }
+                var li = document.createElement("li");
+                li.classList.add("list-group-item", "d-flex", "justify-content-between", "align-items-center");
+                //li.className = "list-group-item d-flex justify-content-between align-items-center";
+                var textli = document.createTextNode(times.toString());
+                li.appendChild(textli);
+                var h6li = document.createElement("h6");
+                var texth6 = document.createTextNode(guess.value);
+                h6li.appendChild(texth6);
+                li.appendChild(h6li);
+
+                var ab = document.createElement("h6");
+                var textab = document.createTextNode( a + "A" + b + "B" );
+                ab.appendChild(textab);
+                li.appendChild(ab);
+                var ul = document.getElementById("display");
+                ul.appendChild(li);
+                if(a == 4)
+                {
+                    alert("猜中了!!");
+                    location.reload();
+                }
+
+            }
+        }
+
+
+        var reload = document.getElementById("reload");
+        reload.onclick = function() {
+            location.reload();
+        }
+
+        function f2() {
+            alert("" + number[0] + number[1] + number[2] + number[3]);
+        }
+    </script>
+</body>
+
+</html>

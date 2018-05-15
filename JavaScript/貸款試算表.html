@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container mt-5 text-center">
+        <h1>貸款試算</h1>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">請輸入貸款金額</span>
+                    </div>
+                    <input type="text" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1" id="loanamount">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">請輸入貸款期間(年)</span>
+                    </div>
+                    <input type="text" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1" id="loanyear">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">請輸入貸款利率</span>
+                    </div>
+                    <input type="text" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1" id="rate">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">應繳每月利息</span>
+                    </div>
+                    <input type="text" readonly="readonly" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1"
+                        id="interest">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">應繳每月本利和</span>
+                    </div>
+                    <input type="text" readonly="readonly" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1"
+                        id="principal">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">總額</span>
+                    </div>
+                    <input type="text" readonly="readonly" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1"
+                        id="total">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-4">
+
+            </div>
+            <div class="col-4 text-center">
+                <button type="button" class="btn btn-warning" id="calc">開始試算</button>
+            </div>
+            <div class="col-4">
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script>
+        var amount = function () {
+            var loanamount = document.getElementById("loanamount").value;
+            var loanyear = document.getElementById("loanyear").value * 12;
+            var rate = document.getElementById("rate").value / 12;
+            var averagerate = (Math.pow((1 + rate), loanyear) * rate) / ((Math.pow((1 + rate), loanyear) - 1));
+            
+            this.everymonthmoney = function () {
+                return loanamount * averagerate;
+            }
+            this.everymonthinterest = function () {
+                return this.everymonthmoney() - loanamount / loanyear;
+            }
+            this.total = function () {
+                return this.everymonthmoney() * loanyear;
+            }
+        }
+
+        var button = document.getElementById("calc");
+        button.onclick = function () {
+            var a = new amount();
+            document.getElementById("principal").value = Math.floor(a.everymonthmoney()); //本利和
+            document.getElementById("interest").value = Math.floor(a.everymonthinterest()); //每月利息
+            document.getElementById("total").value = Math.floor(a.total());
+        }
+    </script>
+</body>
+
+</html>

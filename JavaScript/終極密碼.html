@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>終極密碼</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+
+</head>
+
+<body>
+    <div class="container mt-5 text-center">
+        <h1>終極密碼</h1>
+    </div>
+    <div class="container mt-3 text-center">
+        <h2>數字1到100</h2>
+    </div>
+    <div class="container mt-5">
+        <input type="text" class="form-control" id="txttempC" placeholder="輸入的數字">
+    </div>
+    <div class="container mt-5">
+        <input type="text" readonly="readonly" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1"
+            id="result">
+    </div>
+    <div class="container mt-5">
+        <div class="row mb-3">
+            <div class="col-4 text-right">
+                <button type="button" class="btn btn-info btn-lg btn-block">1</button>
+            </div>
+            <div class="col-4 text-center">
+                <button type="button" class="btn btn-info btn-lg btn-block">2</button>
+            </div>
+            <div class="col-4">
+                <button type="button" class="btn btn-info btn-lg btn-block">3</button>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-4 text-right">
+                <button type="button" class="btn btn-info btn-lg btn-block">4</button>
+            </div>
+            <div class="col-4 text-center">
+                <button type="button" class="btn btn-info btn-lg btn-block">5</button>
+            </div>
+            <div class="col-4">
+                <button type="button" class="btn btn-info btn-lg btn-block">6</button>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-4 text-right">
+                <button type="button" class="btn btn-info btn-lg btn-block">7</button>
+            </div>
+            <div class="col-4 text-center">
+                <button type="button" class="btn btn-info btn-lg btn-block">8</button>
+            </div>
+            <div class="col-4">
+                <button type="button" class="btn btn-info btn-lg btn-block">9</button>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-4 text-right">
+                <button type="button" class="btn btn-info btn-lg btn-block" id="cmdClean">刪除</button>
+            </div>
+            <div class="col-4 text-center">
+                <button type="button" class="btn btn-info btn-lg btn-block">0</button>
+            </div>
+            <div class="col-4">
+                <button type="button" class="btn btn-info btn-lg btn-block" id="guess">猜測</button>
+            </div>
+        </div>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script type="text/javascript" language="javascript">
+        var buttons = document.getElementsByTagName("button");
+
+        for (var i = 0; i < buttons.length; i++) {
+            var button = buttons[i];
+            button.onclick = function () {
+                var btn = event.srcElement;
+                document.getElementById("txttempC").value += btn.innerText;
+            }
+        }
+
+        var cmdClean = document.getElementById("cmdClean");
+        cmdClean.onclick = function () {
+            document.getElementById("txttempC").value = "";
+        }
+
+
+        var answer = Math.floor(Math.random() * 100) + 1; //亂數答案
+        var guess = document.getElementById("guess");
+        var guess1 = document.getElementById("txttempC");
+        var max = 100;
+        var min = 0;
+        var a = 1;   //紀錄猜測次數
+        var b = 9;  //限制次數
+        console.log(answer);
+        guess.onclick = function () {
+            if (answer == guess1.value) {
+                document.getElementById("result").value = "恭喜你答對了!!";
+                console.log("猜"+ a++ +"次答對");
+
+            } else if (answer > guess1.value) {
+                min = guess1.value;
+                document.getElementById("result").value = min + "~" + max + "剩" + b-- + "次";
+                console.log("猜"+ a++ +"次");
+
+            } else if (answer < guess1.value) {
+                max = guess1.value;
+                document.getElementById("result").value = min + "~" + max + "剩" + b-- + "次";
+                console.log("猜"+ a++ +"次");
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,815 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css" integrity="sha384-5SOiIsAziJl6AWe0HWRKTXlfcSHKmYV4RBF18PPJ173Kzn7jzMyFuTtk8JA7QQG1"
+        crossorigin="anonymous">
+</head>
+
+<body style="font-family: Microsoft JhengHei;">
+    <div class="container text-center" style="background-color:pink">
+        <h6>&nbsp;</h6>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-4 text-center mt-4">
+                <a name="" id="past" class="btn btn-success" href="#" role="button">
+                    <i class="fas fa-caret-left"></i>
+                </a>
+            </div>
+            <div class="col-4 text-center mt-3" style="font-size:30px;">
+                <p>
+                    <span id="year"></span>
+                    <span id="month"></span>
+                </p>
+                <p>
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-warning btn-lg" data-toggle="modal" data-target="#modelId">
+                        新增事項
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="input-group mb-3 mt-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="basic-addon1">年份</span>
+                                        </div>
+                                        <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1" readonly="readonly" id="EventYear">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="basic-addon2">月份</span>
+                                        </div>
+                                        <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon2" readonly="readonly" id="EventMonth">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="basic-addon3">日期</span>
+                                        </div>
+                                        <select class="selectpicker" id="EventDay" style="font-size:0.5em; width: 6em;">
+
+                                        </select>
+                                        <!--<input type="text" class="form-control" placeholder="Date" aria-label="Username" aria-describedby="basic-addon3" id="EventDay">-->
+                                    </div>
+                                    <div class="input-group mb-3 mt-4">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="basic-addon4">行程起始時間</span>
+                                        </div>
+                                        <select class="selectpicker" id="Starttime" style="font-size:0.5em; width: 6em;">
+                                            <option value="0" style="font-size:5px">00:00</option>
+                                            <option value="1" style="font-size:5px">01:00</option>
+                                            <option value="2" style="font-size:5px">02:00</option>
+                                            <option value="3" style="font-size:5px">03:00</option>
+                                            <option value="4" style="font-size:5px">04:00</option>
+                                            <option value="5" style="font-size:5px">05:00</option>
+                                            <option value="6" style="font-size:5px">06:00</option>
+                                            <option value="7" style="font-size:5px">07:00</option>
+                                            <option value="8" style="font-size:5px">08:00</option>
+                                            <option value="9" style="font-size:5px">09:00</option>
+                                            <option value="10" style="font-size:5px">10:00</option>
+                                            <option value="11" style="font-size:5px">11:00</option>
+                                            <option value="12" style="font-size:5px">12:00</option>
+                                            <option value="13" style="font-size:5px">13:00</option>
+                                            <option value="14" style="font-size:5px">14:00</option>
+                                            <option value="15" style="font-size:5px">15:00</option>
+                                            <option value="16" style="font-size:5px">16:00</option>
+                                            <option value="17" style="font-size:5px">17:00</option>
+                                            <option value="18" style="font-size:5px">18:00</option>
+                                            <option value="19" style="font-size:5px">19:00</option>
+                                            <option value="20" style="font-size:5px">20:00</option>
+                                            <option value="21" style="font-size:5px">21:00</option>
+                                            <option value="22" style="font-size:5px">22:00</option>
+                                            <option value="23" style="font-size:5px">23:00</option>
+                                        </select>
+                                    </div>
+                                    <div class="input-group mb-3 mt-4">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="basic-addon4">行程結束時間</span>
+                                        </div>
+                                        <select class="selectpicker" id="Endtime" style="font-size:0.5em; width: 6em;">
+                                            <option value="0" style="font-size:5px">00:00</option>
+                                            <option value="1" style="font-size:5px">01:00</option>
+                                            <option value="2" style="font-size:5px">02:00</option>
+                                            <option value="3" style="font-size:5px">03:00</option>
+                                            <option value="4" style="font-size:5px">04:00</option>
+                                            <option value="5" style="font-size:5px">05:00</option>
+                                            <option value="6" style="font-size:5px">06:00</option>
+                                            <option value="7" style="font-size:5px">07:00</option>
+                                            <option value="8" style="font-size:5px">08:00</option>
+                                            <option value="9" style="font-size:5px">09:00</option>
+                                            <option value="10" style="font-size:5px">10:00</option>
+                                            <option value="11" style="font-size:5px">11:00</option>
+                                            <option value="12" style="font-size:5px">12:00</option>
+                                            <option value="13" style="font-size:5px">13:00</option>
+                                            <option value="14" style="font-size:5px">14:00</option>
+                                            <option value="15" style="font-size:5px">15:00</option>
+                                            <option value="16" style="font-size:5px">16:00</option>
+                                            <option value="17" style="font-size:5px">17:00</option>
+                                            <option value="18" style="font-size:5px">18:00</option>
+                                            <option value="19" style="font-size:5px">19:00</option>
+                                            <option value="20" style="font-size:5px">20:00</option>
+                                            <option value="21" style="font-size:5px">21:00</option>
+                                            <option value="22" style="font-size:5px">22:00</option>
+                                            <option value="23" style="font-size:5px">23:00</option>
+                                        </select>
+                                    </div>
+                                    <div class="input-group mb-3 mt-4">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="basic-addon5">標題</span>
+                                        </div>
+                                        <input type="text" class="form-control" placeholder="Event Title" aria-label="Username" aria-describedby="basic-addon5" id="Title">
+                                    </div>
+                                    <div class="input-group mb-3 mt-4">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="basic-addon6">顏色</span>
+                                            <input type="color" name="favcolor" value="#ff0000" style="height: 38px;" id="Color">
+                                        </div>
+                                    </div>
+                                    <div class="input-group mb-3 mt-4">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="basic-addon6">地址</span>
+                                        </div>
+                                        <input type="text" class="form-control" placeholder="Address" readonly="readonly" aria-label="Username" aria-describedby="basic-addon6"
+                                            id="mapaddress">
+                                    </div>
+                                    <div id="map" style="width:465px; height: 450px; border:1px solid #000000">MAP</div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-success" data-dismiss="modal" id="Save">儲存</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--產生button後的modal-->
+                    <div class="modal fade" id="modelId1" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="input-group mb-3 mt-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="basic-addon1">年份</span>
+                                        </div>
+                                        <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1" readonly="readonly" id="EventYear1">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="basic-addon2">月份</span>
+                                        </div>
+                                        <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon2" readonly="readonly" id="EventMonth1">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="basic-addon3">日期</span>
+                                        </div>
+                                        <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon3" readonly="readonly" id="EventDate1">
+
+                                        <!--<input type="text" class="form-control" placeholder="Date" aria-label="Username" aria-describedby="basic-addon3" id="EventDay">-->
+                                    </div>
+                                    <div class="input-group mb-3 mt-4">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="basic-addon4">行程起始時間</span>
+                                        </div>
+                                        <select class="selectpicker" id="Starttime1" style="font-size:0.5em; width: 6em;">
+                                            <option value="0" style="font-size:5px">00:00</option>
+                                            <option value="1" style="font-size:5px">01:00</option>
+                                            <option value="2" style="font-size:5px">02:00</option>
+                                            <option value="3" style="font-size:5px">03:00</option>
+                                            <option value="4" style="font-size:5px">04:00</option>
+                                            <option value="5" style="font-size:5px">05:00</option>
+                                            <option value="6" style="font-size:5px">06:00</option>
+                                            <option value="7" style="font-size:5px">07:00</option>
+                                            <option value="8" style="font-size:5px">08:00</option>
+                                            <option value="9" style="font-size:5px">09:00</option>
+                                            <option value="10" style="font-size:5px">10:00</option>
+                                            <option value="11" style="font-size:5px">11:00</option>
+                                            <option value="12" style="font-size:5px">12:00</option>
+                                            <option value="13" style="font-size:5px">13:00</option>
+                                            <option value="14" style="font-size:5px">14:00</option>
+                                            <option value="15" style="font-size:5px">15:00</option>
+                                            <option value="16" style="font-size:5px">16:00</option>
+                                            <option value="17" style="font-size:5px">17:00</option>
+                                            <option value="18" style="font-size:5px">18:00</option>
+                                            <option value="19" style="font-size:5px">19:00</option>
+                                            <option value="20" style="font-size:5px">20:00</option>
+                                            <option value="21" style="font-size:5px">21:00</option>
+                                            <option value="22" style="font-size:5px">22:00</option>
+                                            <option value="23" style="font-size:5px">23:00</option>
+                                        </select>
+                                    </div>
+                                    <div class="input-group mb-3 mt-4">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="basic-addon4">行程結束時間</span>
+                                        </div>
+                                        <select class="selectpicker" id="Endtime1" style="font-size:0.5em; width: 6em;">
+                                            <option value="0" style="font-size:5px">00:00</option>
+                                            <option value="1" style="font-size:5px">01:00</option>
+                                            <option value="2" style="font-size:5px">02:00</option>
+                                            <option value="3" style="font-size:5px">03:00</option>
+                                            <option value="4" style="font-size:5px">04:00</option>
+                                            <option value="5" style="font-size:5px">05:00</option>
+                                            <option value="6" style="font-size:5px">06:00</option>
+                                            <option value="7" style="font-size:5px">07:00</option>
+                                            <option value="8" style="font-size:5px">08:00</option>
+                                            <option value="9" style="font-size:5px">09:00</option>
+                                            <option value="10" style="font-size:5px">10:00</option>
+                                            <option value="11" style="font-size:5px">11:00</option>
+                                            <option value="12" style="font-size:5px">12:00</option>
+                                            <option value="13" style="font-size:5px">13:00</option>
+                                            <option value="14" style="font-size:5px">14:00</option>
+                                            <option value="15" style="font-size:5px">15:00</option>
+                                            <option value="16" style="font-size:5px">16:00</option>
+                                            <option value="17" style="font-size:5px">17:00</option>
+                                            <option value="18" style="font-size:5px">18:00</option>
+                                            <option value="19" style="font-size:5px">19:00</option>
+                                            <option value="20" style="font-size:5px">20:00</option>
+                                            <option value="21" style="font-size:5px">21:00</option>
+                                            <option value="22" style="font-size:5px">22:00</option>
+                                            <option value="23" style="font-size:5px">23:00</option>
+                                        </select>
+                                    </div>
+                                    <div class="input-group mb-3 mt-4">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="basic-addon5">標題</span>
+                                        </div>
+                                        <input type="text" class="form-control" placeholder="Event Title" aria-label="Username" aria-describedby="basic-addon5" id="Title1">
+                                    </div>
+                                    <div class="input-group mb-3 mt-4">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="basic-addon6">顏色</span>
+                                            <input type="color" name="favcolor" value="#ff0000" style="height: 38px;" id="Color1">
+                                        </div>
+                                    </div>
+                                    <div class="input-group mb-3 mt-4">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="basic-addon7">地址</span>
+                                        </div>
+                                        <input type="text" class="form-control" placeholder="Address" readonly="readonly" aria-label="Username" aria-describedby="basic-addon7"
+                                            id="mapaddress1">
+                                    </div>
+                                    <div id="map1" style="width:465px; height: 450px; border:1px solid #000000">MAP</div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-danger" data-dismiss="modal" id="Delete">刪除</button>
+                                    <button type="button" class="btn btn-success" data-dismiss="modal" id="Update">更新</button>
+                                </div>
+                            </div>
+                        </div>
+                        <input type="hidden" id="HiddenKey">
+                    </div>
+                </p>
+                <button type="button" class="btn btn-danger" id="DeleteMonthEvent">刪除本月事項</button>
+            </div>
+            <div class="col-4 text-center mt-4">
+                <a name="" id="future" class="btn btn-success" href="#" role="button">
+                    <i class="fas fa-caret-right"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <hr style="border-width:3px;" />
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h3 class="text-center" style="color:red;">MON</h3>
+            </div>
+            <div class="col">
+                <h3 class="text-center" style="color:red;">TUE</h3>
+            </div>
+            <div class="col">
+                <h3 class="text-center" style="color:red;">WED</h3>
+            </div>
+            <div class="col">
+                <h3 class="text-center" style="color:red;">THU</h3>
+            </div>
+            <div class="col">
+                <h3 class="text-center" style="color:red;">FRI</h3>
+            </div>
+            <div class="col">
+                <h3 class="text-center" style="color:red;">SAT</h3>
+            </div>
+            <div class="col">
+                <h3 class="text-center" style="color:red;">SUN</h3>
+            </div>
+        </div>
+    </div>
+    <div class="container" id="container">
+
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyArgoVKOnLn69Ujpd7qjTICzNONto7B_3Y"></script>
+    <script>
+        function firstday(y, m) { //找表格的第一天
+            var first = new Date(y, m, 1); //宣告日期為1號
+            while (first.getDay() != 1) { //如果第一天不是星期一
+                first.setDate(first.getDate() - 1); //設置當天數字
+                //x = x - 1;
+            }
+            return first;
+        }
+
+        function buttonclick(o) {
+            var j = JSON.parse(o.getAttribute("TBY"));
+            document.getElementById("EventYear1").value = j.y;
+            document.getElementById("EventMonth1").value = parseInt(j.m) + 1;
+            document.getElementById("EventDate1").value = j.d;
+            document.getElementById("Starttime1").selectedIndex = j.f;
+            document.getElementById("Endtime1").selectedIndex = j.t;
+            document.getElementById("Title1").value = j.s;
+            document.getElementById("Color1").value = j.c;
+            document.getElementById("HiddenKey").value = j.k; //將scheduleItem.key隱藏在hiddenkey
+            document.getElementById("mapaddress1").value = j.a;
+
+            var geocoder = new google.maps.Geocoder();
+            geocoder.geocode({
+                'address': j.a
+            }, function (results, status) {
+                if (status == google.maps.GeocoderStatus.OK) {
+                    map1.setCenter(results[0].geometry.location);
+                    if (marker != null) {
+                        marker.setMap(null);
+                        marker = null;
+                    }
+                    marker = new google.maps.Marker({
+                        map: map1,
+                        position: results[0].geometry.location
+                    });
+                } else {
+                    alert('Geocode was not successful for the following reason: ' + status);
+                }
+            });
+        }
+
+        function Oldcalender(y, m) { //產生日期
+            var container = document.getElementById("container");
+            while (container.hasChildNodes()) {
+                container.removeChild(container.firstChild);
+            }
+            var first = firstday(y, m);
+
+            document.getElementById("EventYear").value = y;
+            document.getElementById("EventMonth").value = m + 1;
+            var select = document.getElementById("EventDay");
+            while (select.hasChildNodes()) {
+                select.removeChild(select.firstChild);
+            }
+            for (var i = 1; i <= 6; i++) {
+                var row = document.createElement("div");
+                row.classList.add("row", "mt-5");
+                for (var j = 1; j <= 7; j++) {
+                    var col = document.createElement("div");
+                    col.classList.add("col");
+                    var span = document.createElement("span");
+
+                    var textspan = document.createTextNode(first.getDate().toString()); //日期內容
+                    span.appendChild(textspan);
+
+                    col.appendChild(span);
+
+                    if (first.getMonth() == m) { //判斷當月日期顏色
+                        span.classList.add("badge", "badge-dark"); //當月日期顏色
+
+                        var ul = document.createElement("ul");
+                        ul.classList.add("list-group");
+                        ul.setAttribute("id", "D" + first.getDate()); //設定ul(屬性ID, 值(D+日期))
+
+                        var dailyschedule = monthlySchedule.days[first.getDate() - 1]; //選取當天的行事曆物件*
+
+                        for (var z of dailyschedule.items) {
+
+                            var li = document.createElement("li");
+                            li.setAttribute("style", "background-color:" + z.color);
+
+                            var textli = document.createTextNode(z.fromHR + "點~" + z.toHR + "點 " + z.subject);
+                            li.appendChild(textli);
+
+                            li.setAttribute("data-toggle", "modal");
+                            li.setAttribute("data-target", "#modelId1");
+                            li.setAttribute("id", z.key);
+                            var jjj = {
+                                y: monthlySchedule.year,
+                                m: monthlySchedule.month,
+                                d: dailyschedule.day,
+                                f: z.fromHR,
+                                t: z.toHR,
+                                s: z.subject,
+                                c: z.color,
+                                k: z.key,
+                                a: z.address
+                            };
+                            li.setAttribute("TBY", JSON.stringify(jjj));
+                            li.onclick = function () {
+                                buttonclick(this);
+                            };
+                            ul.appendChild(li);
+                        }
+
+                        col.appendChild(ul);
+
+                        var option = document.createElement("option");
+                        option.value = first.getDate();
+                        option.style = "font-size:5px";
+                        option.text = first.getDate();
+
+                        select.appendChild(option);
+
+                    } else {
+                        span.classList.add("badge", "badge-light");
+                    }
+
+                    first.setDate(first.getDate() + 1);
+
+                    row.appendChild(col);
+                }
+                container.appendChild(row);
+            }
+        }
+
+        function calender(y, m) { //產生日期
+            var container = document.getElementById("container");
+            while (container.hasChildNodes()) { //有之前日期要清除
+                container.removeChild(container.firstChild);
+            }
+
+            var first = firstday(y, m);
+
+            document.getElementById("EventYear").value = y; //顯示互動視窗內的年之值
+            document.getElementById("EventMonth").value = m + 1; //顯示互動視窗內的月之值
+
+            var select = document.getElementById("EventDay");
+            while (select.hasChildNodes()) { //若有之前日期選項要清除
+                select.removeChild(select.firstChild);
+            }
+            for (var i = 1; i <= 6; i++) {
+                var row = document.createElement("div"); //產生列
+                row.classList.add("row", "mt-5"); //列的類別名稱
+                for (var j = 1; j <= 7; j++) {
+                    var col = document.createElement("div"); //產生欄
+                    col.classList.add("col");
+                    var span = document.createElement("span"); //產生span
+
+                    var textspan = document.createTextNode(first.getDate().toString()); //日期內容
+                    span.appendChild(textspan);
+
+                    col.appendChild(span);
+
+                    if (first.getMonth() == m) { //判斷當月日期顏色
+                        span.classList.add("badge", "badge-dark"); //當月日期顏色
+
+                        var ul = document.createElement("ul"); //產生ul
+                        ul.classList.add("list-group"); //
+                        ul.setAttribute("id", "D" + first.getDate()); //設定ul(屬性ID, 值(D+日期))
+
+                        var dailySchedule = { //當日行事曆(有行事曆項目狀況)
+                            day: first.getDate(), //日期
+                            items: [] //每日的行事曆項目
+                        };
+                        monthlySchedule.days.push(dailySchedule);
+
+                        col.appendChild(ul);
+
+
+                        var option = document.createElement("option"); //產生當月日期項目
+                        option.value = first.getDate();
+                        option.style = "font-size:5px";
+                        option.text = first.getDate();
+
+                        select.appendChild(option);
+
+                    } else {
+                        span.classList.add("badge", "badge-light");
+                    }
+
+                    first.setDate(first.getDate() + 1);
+
+                    row.appendChild(col);
+                }
+                container.appendChild(row);
+            }
+        }
+
+        function _uuid() { //產生GUID亂碼(不重複)
+            var d = Date.now();
+            if (typeof performance !== 'undefined' && typeof performance.now === 'function') {
+                d += performance.now(); //use high-precision timer if available
+            }
+            return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+                var r = (d + Math.random() * 16) % 16 | 0;
+                d = Math.floor(d / 16);
+                return (c === 'x' ? r : (r & 0x3 | 0x8)).toString(16);
+            });
+        }
+
+
+        var date = new Date();
+        var nowyear = date.getFullYear();
+        var nowmonth = date.getMonth(); //getmonth是取那月-1(0~11)
+
+
+        document.getElementById("year").innerText = nowyear + "年"; //顯示當年份
+        document.getElementById("month").innerText = nowmonth + 1 + "月"; //顯示當月份
+        //var day = date.getDay(); (0~6)
+        //var datenumber = date.getDate(); (1~31)
+
+        var a = window.localStorage.getItem("" + nowyear + nowmonth); //從localStorage讀取資料
+
+        var monthlySchedule = { //宣告當月行事曆
+            year: nowyear, //年
+            month: nowmonth, //月
+            days: [] //當月的日期行事曆項目
+        };
+
+        var map;
+        var map1;
+        var marker = null;
+        var center = {
+            lat: 24.7571075,
+            lng: 120.952429
+        };
+
+        window.onload = function () {
+            map = new google.maps.Map(
+                document.getElementById('map'), {
+                    center: center,
+                    zoom: 15
+                });
+            map.addListener('click', function (e) {
+                var geocoder = new google.maps.Geocoder();
+                // 傳入 latLng 資訊至 geocoder.geocode
+                geocoder.geocode({
+                    'latLng': e.latLng
+                }, function (results, status) {
+                    if (status === google.maps.GeocoderStatus.OK) {
+                        // 如果有資料就會回傳
+                        if (results) {
+                            //console.log(results[0]);
+                            document.getElementById("mapaddress").value = results[0].formatted_address;
+                        }
+
+                        map.setCenter(e.latLng);
+                        if (marker != null) {
+                            marker.setMap(null);
+                            marker = null;
+                        }
+
+                        marker = new google.maps.Marker({
+                            position: e.latLng,
+                            map: map,
+                            //icon: "",
+                            title: results[0].formatted_address.toString()
+                        });
+                    }
+                    // 經緯度資訊錯誤
+                    else {
+                        alert("Reverse Geocoding failed because: " + status);
+                    }
+                });
+            });
+
+            map1 = new google.maps.Map(
+                document.getElementById('map1'), {
+                    center: center,
+                    zoom: 15
+                });
+            map1.addListener('click', function (e) {
+                var geocoder = new google.maps.Geocoder();
+                // 傳入 latLng 資訊至 geocoder.geocode
+                geocoder.geocode({
+                    'latLng': e.latLng
+                }, function (results, status) {
+                    if (status === google.maps.GeocoderStatus.OK) {
+                        // 如果有資料就會回傳
+                        if (results) {
+                            //console.log(results[0]);
+                            document.getElementById("mapaddress1").value = results[0].formatted_address;
+                        }
+
+                        map1.setCenter(e.latLng);
+                        if (marker != null) {
+                            marker.setMap(null);
+                            marker = null;
+                        }
+
+                        marker = new google.maps.Marker({
+                            position: e.latLng,
+                            map: map1,
+                            //icon: "",
+                            title: results[0].formatted_address.toString()
+                        });
+                    }
+                    // 經緯度資訊錯誤
+                    else {
+                        alert("Reverse Geocoding failed because: " + status);
+                    }
+                });
+            });
+
+
+        }
+
+        if (a == null) { //判斷localStorage有無資料
+            calender(nowyear, nowmonth); //沒抓到當月行事曆(長出日期and產生行事曆)
+            window.localStorage.setItem("" + monthlySchedule.year + monthlySchedule.month, JSON.stringify(
+                monthlySchedule)); //儲存資料(key,當月行事曆物件轉字串)
+        } else {
+            monthlySchedule = JSON.parse(a); //字串轉成當月行事曆物件
+            Oldcalender(nowyear, nowmonth); //有抓到當月行事曆(長出日期and顯示行事曆)
+        }
+
+
+
+        var save = document.getElementById("Save");
+        save.onclick = function () { //某年某月某日之行事曆
+            var scheduleItem = {
+                key: _uuid(), //行事曆鍵值
+                fromHR: document.getElementById("Starttime").value, //開始時間
+                toHR: document.getElementById("Endtime").value, //結束時間
+                subject: document.getElementById("Title").value, //行事曆標題
+                color: document.getElementById("Color").value, //使用者自訂色彩
+                address: document.getElementById("mapaddress").value //地址
+            }
+            var dailySchedule = monthlySchedule.days[document.getElementById("EventDay").value - 1]; //取得當日行事曆
+            console.log(dailySchedule);
+            dailySchedule.items.push(scheduleItem); //當日新增一筆行程
+            window.localStorage.setItem("" + monthlySchedule.year + monthlySchedule.month, JSON.stringify(
+                monthlySchedule)); //寫回當月的localstorage
+
+            var ul = document.getElementById("D" + document.getElementById("EventDay").value);
+            console.log(ul);
+            var li = document.createElement("li");
+            li.setAttribute("style", "background-color:" + scheduleItem.color);
+            var textli = document.createTextNode(scheduleItem.fromHR + "點~" + scheduleItem.toHR + "點 " +
+                scheduleItem
+                .subject);
+            li.appendChild(textli);
+
+            li.setAttribute("data-toggle", "modal"); //事項增加屬性
+            li.setAttribute("data-target", "#modelId1");
+            li.setAttribute("id", scheduleItem.key);
+            var jjj = { //存在TBY的物件
+                y: monthlySchedule.year,
+                m: monthlySchedule.month,
+                d: dailySchedule.day,
+                f: scheduleItem.fromHR,
+                t: scheduleItem.toHR,
+                s: scheduleItem.subject,
+                c: scheduleItem.color,
+                k: scheduleItem.key,
+                a: scheduleItem.address
+            };
+            li.setAttribute("TBY", JSON.stringify(jjj));
+            li.onclick = function () {
+                buttonclick(this);
+            };
+
+            ul.appendChild(li);
+        }
+
+
+        var update = document.getElementById("Update"); //更新button
+        update.onclick = function () {
+            var hiddenkey = document.getElementById("HiddenKey");
+
+            var li = document.getElementById(hiddenkey.value); //刪除接著更新畫面行事曆  //假設hiddenkey不會重複
+            li.removeChild(li.firstChild); //把textnode資料刪除
+
+            var textli = document.createTextNode(document.getElementById("Starttime1").value + "點~" + document.getElementById(
+                    "Endtime1").value + "點 " +
+                document.getElementById("Title1").value);
+            li.style = "background-color:" + document.getElementById("Color1").value;
+            li.appendChild(textli);
+
+            var jjj = { //存在TBY的物件
+                y: document.getElementById("EventYear1").value,
+                m: parseInt(document.getElementById("EventMonth1").value) - 1,
+                d: document.getElementById("EventDate1").value,
+                f: document.getElementById("Starttime1").value,
+                t: document.getElementById("Endtime1").value,
+                s: document.getElementById("Title1").value,
+                c: document.getElementById("Color1").value,
+                k: document.getElementById("HiddenKey").value,
+                a: document.getElementById("mapaddress1").value
+            };
+            li.setAttribute("TBY", JSON.stringify(jjj));
+
+
+            var dailySchedule = monthlySchedule.days[document.getElementById("EventDate1").value - 1]; //更新資料行事曆
+            for (var i = 0; i < dailySchedule.items.length; i++) {
+                if (hiddenkey.value == dailySchedule.items[i].key) {
+                    dailySchedule.items[i].fromHR = document.getElementById("Starttime1").value;
+                    dailySchedule.items[i].toHR = document.getElementById("Endtime1").value;
+                    dailySchedule.items[i].subject = document.getElementById("Title1").value;
+                    dailySchedule.items[i].color = document.getElementById("Color1").value;
+                    dailySchedule.items[i].address = document.getElementById("mapaddress1").value;
+                    monthlySchedule.days[document.getElementById("EventDate1").value - 1] = dailySchedule; //取代舊之一筆當日行事曆
+                    break;
+                }
+            }
+            window.localStorage.setItem("" + monthlySchedule.year + monthlySchedule.month, JSON.stringify(
+                monthlySchedule));
+        }
+
+        var del = document.getElementById("Delete"); //刪除button
+        del.onclick = function () {
+            var hiddenkey = document.getElementById("HiddenKey"); //找出隱藏KEY
+
+            var li = document.getElementById(hiddenkey.value); //刪除畫面行事曆
+            li.remove();
+
+            var dailySchedule = monthlySchedule.days[document.getElementById("EventDate1").value - 1]; //刪除資料行事曆
+            for (var i = 0; i < dailySchedule.items.length; i++) {
+                if (hiddenkey.value == dailySchedule.items[i].key) {
+                    dailySchedule.items.splice(i, 1); //刪除那一項
+                    monthlySchedule.days[document.getElementById("EventDate1").value - 1] = dailySchedule; //取代舊之一筆當日行事曆
+
+                    break;
+                }
+            }
+            window.localStorage.setItem("" + monthlySchedule.year + monthlySchedule.month, JSON.stringify(
+                monthlySchedule));
+        }
+
+        var past = document.getElementById("past"); //上個月button
+        past.onclick = function () {
+            if (nowmonth == 0) {
+                nowyear--;
+                nowmonth = 11;
+            } else {
+                nowmonth--;
+            }
+            document.getElementById("year").innerText = nowyear + "年";
+            document.getElementById("month").innerText = (nowmonth + 1) + "月";
+
+            a = window.localStorage.getItem("" + nowyear + nowmonth);
+            monthlySchedule = {
+                year: nowyear, //年
+                month: nowmonth, //月
+                days: [] //當月的日期行事曆項目
+            };
+            if (a == null) {
+                calender(nowyear, nowmonth);
+                window.localStorage.setItem("" + monthlySchedule.year + monthlySchedule.month, JSON.stringify(
+                    monthlySchedule));
+            } else {
+                monthlySchedule = JSON.parse(a);
+                Oldcalender(nowyear, nowmonth);
+            }
+        }
+
+        var future = document.getElementById("future"); ////下個月button
+        future.onclick = function () {
+            if (nowmonth == 11) {
+                nowyear++;
+                nowmonth = 0;
+            } else {
+                nowmonth++;
+            }
+            document.getElementById("year").innerText = nowyear + "年";
+            document.getElementById("month").innerText = (nowmonth + 1) + "月";
+            a = window.localStorage.getItem("" + nowyear + nowmonth);
+            monthlySchedule = {
+                year: nowyear, //年
+                month: nowmonth, //月
+                days: [] //當月的日期行事曆項目
+            };
+            if (a == null) {
+                calender(nowyear, nowmonth);
+                window.localStorage.setItem("" + monthlySchedule.year + monthlySchedule.month, JSON.stringify(
+                    monthlySchedule));
+            } else {
+                monthlySchedule = JSON.parse(a);
+                Oldcalender(nowyear, nowmonth);
+            }
+        }
+
+        var deletemonthevent = document.getElementById("DeleteMonthEvent");
+        deletemonthevent.onclick = function () {
+            alert("確定刪除?");
+            localStorage.removeItem("" + monthlySchedule.year + monthlySchedule.month);
+            location.reload();
+        }
+    </script>
+</body>
+
+</html>

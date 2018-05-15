@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css" integrity="sha384-5SOiIsAziJl6AWe0HWRKTXlfcSHKmYV4RBF18PPJ173Kzn7jzMyFuTtk8JA7QQG1" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="container">
+        <div class="row mt-5">
+          <div class="col-9 text-center">
+            <h3>稅額試算</h3>
+          </div>
+        </div>
+        <div class="form-group row">
+            <label for="txtNetIncome" class="col-2 col-form-label text-right">所得淨額</label>
+            <div class="input-group col-6">
+              <div class="input-group-prepend">
+                <div class="input-group-text"><i class="fas fa-dollar-sign"></i></div>
+              </div>
+              <input type="text" class="form-control" id="txtNetIncome" />
+            </div>
+            <div class="col-1">
+              <button class="btn btn-primary" id="calc"><i class="fas fa-calculator"></i></button>
+            </div>
+          </div>
+        </div><div class="form-group row">
+            <label for="txtTaxRate" class="col-3 col-form-label text-right">稅率</label>
+            <div class="input-group col-5">
+              <input type="text" class="form-control" readonly maxlength="5" id="txtTaxRate" />
+              <div class="input-group-append">
+                <div class="input-group-text"><i class="fas fa-percent"></i></div>
+              </div>
+            </div>
+          </div>
+        </div><div class="form-group row">
+            <label for="txtTaxAdjustment" class="col-3 col-form-label text-right">累進差額</label>
+            <div class="input-group col-5">
+              <div class="input-group-prepend">
+                <div class="input-group-text"><i class="fas fa-dollar-sign"></i></div>
+              </div>
+              <input type="text" class="form-control" readonly id="txtTaxAdjustment" />
+            </div>
+          </div>
+        </div><div class="form-group row">
+            <label for="txtTaxAmount" class="col-3 col-form-label text-right">應納稅額</label>
+            <div class="input-group col-5">
+              <div class="input-group-prepend">
+                <div class="input-group-text"><i class="fas fa-dollar-sign"></i></div>
+              </div>
+              <input type="text" class="form-control" readonly Id="txtTaxAmount" />
+            </div>
+          </div>
+        </div>
+      </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script>
+
+
+    var input = document.getElementById("txtNetIncome");
+    var outputrate = document.getElementById("txtTaxRate");
+    var taxadjustment = document.getElementById("txtTaxAdjustment");
+    var taxamount = document.getElementById("txtTaxAmount");
+    
+
+
+    var taxArray = [
+      {rate:0.05, startincome:0, endincome:540000, difference:0},
+      {rate:0.12, startincome:540001, endincome:1210000, difference:37800},
+      {rate:0.2, startincome:1210001, endincome:2420000, difference:134600},
+      {rate:0.3, startincome:2420001, endincome:4530000, difference:376600},
+      {rate:0.4, startincome:4530001, endincome:10310000, difference:829600},
+      {rate:0.45, startincome:10310001, endincome:10000000000, difference:1345100}
+      ];
+
+    var calc = document.getElementById("calc");
+    calc.onclick = function () {
+        var numinput = parseInt(input.value);
+        if(numinput > 0 && numinput <= 540000)
+        {
+          document.getElementById("txtTaxRate").value = "0.05";
+          document.getElementById("txtTaxAdjustment").value = "0";
+          document.getElementById("txtTaxAmount").value = numinput * 0.05;
+        }
+        else if(numinput > 540000 && numinput <= 1210000)
+        {
+          document.getElementById("txtTaxRate").value = "0.12";
+          document.getElementById("txtTaxAdjustment").value = "37800";
+          document.getElementById("txtTaxAmount").value = (numinput * 0.12) - 37800;
+        }
+        else if(numinput > 1210000 && numinput <= 2420000)
+        {
+          document.getElementById("txtTaxRate").value = "0.2";
+          document.getElementById("txtTaxAdjustment").value = "134600";
+          document.getElementById("txtTaxAmount").value = (numinput * 0.2) - 134600;
+        }
+        else if(numinput > 2420000 && numinput <= 4530000)
+        {
+          document.getElementById("txtTaxRate").value = "0.3";
+          document.getElementById("txtTaxAdjustment").value = "376600";
+          document.getElementById("txtTaxAmount").value = (numinput * 0.3) - 376600;
+        }
+        else if(numinput > 4530000 && numinput <= 10310000)
+        {
+          document.getElementById("txtTaxRate").value = "0.4";
+          document.getElementById("txtTaxAdjustment").value = "829600";
+          document.getElementById("txtTaxAmount").value = (numinput * 0.4) - 829600;
+        }
+        else if(numinput > 10310000 && numinput <= 10000000000000)
+        {
+          document.getElementById("txtTaxRate").value = "0.45";
+          document.getElementById("txtTaxAdjustment").value = "1345100";
+          document.getElementById("txtTaxAmount").value = (numinput * 0.45) - 1345100;
+        }
+    }
+    
+
+    
+
+
+    
+    </script>
+  </body>
+</html>
