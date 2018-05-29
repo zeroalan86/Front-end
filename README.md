@@ -8,7 +8,8 @@
 * HTML  
 * CSS   
 * Bootstrap  
-   
+  刻Trello卡片遇上的困難:會沒注意到UI的設計概念以及第一次使用Bootstrap設計網頁  
+
 ![image](https://raw.githubusercontent.com/zeroalan86/Front-end/master/image/trello(Bootstrap).png)
 
 
@@ -18,6 +19,7 @@
 * HTML  
 * CSS   
 * Bootstrap  
+  設計蝦皮網頁困難:熟悉Bootstrap排版設計技巧以及耐心細心程度
  
 ![image](https://raw.githubusercontent.com/zeroalan86/Front-end/master/image/shopee(Bootstrap).png)
 
@@ -28,8 +30,8 @@
 * HTML  
 * CSS   
 * Bootstrap  
-* JavaScript
-
+* JavaScript  
+  終極密碼的困難處:練習用JavaScript讓網頁有互動性
 ![image](https://raw.githubusercontent.com/zeroalan86/Front-end/master/image/danger-password.png)
 
 
@@ -40,7 +42,7 @@
 * CSS   
 * Bootstrap  
 * JQuery
-
+  
 ![image](https://raw.githubusercontent.com/zeroalan86/Front-end/master/image/Temperature.png)
 
 
@@ -68,5 +70,5 @@
 * Bootstrap   
 * JavaScript  
 * JQuery    
-
+  運用CSS Selecter來操作，並利用LocalStorage存取當天事項以及地點
 ![image](https://raw.githubusercontent.com/zeroalan86/Front-end/master/image/schedule.png)
