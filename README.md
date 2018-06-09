@@ -10,6 +10,8 @@
 * Bootstrap  
   刻Trello卡片遇上的困難:會沒注意到UI的設計概念以及第一次使用Bootstrap設計網頁  
 
+  [作品連結](https://myfirstschool.azurewebsites.net/Bootstrap/trello.html)
+
 ![image](https://raw.githubusercontent.com/zeroalan86/Front-end/master/image/trello(Bootstrap).png)
 
 
@@ -20,7 +22,9 @@
 * CSS   
 * Bootstrap  
   設計蝦皮網頁困難:熟悉Bootstrap排版設計技巧以及耐心細心程度
- 
+
+  [作品連結!](https://myfirstschool.azurewebsites.net/Bootstrap/shopee.html)
+
 ![image](https://raw.githubusercontent.com/zeroalan86/Front-end/master/image/shopee(Bootstrap).png)
 
 
@@ -32,6 +36,9 @@
 * Bootstrap  
 * JavaScript  
   終極密碼的困難處:練習用JavaScript讓網頁有互動性
+
+  [作品連結!](https://myfirstschool.azurewebsites.net/JavaScript/Danger-Password.html)
+
 ![image](https://raw.githubusercontent.com/zeroalan86/Front-end/master/image/danger-password.png)
 
 
@@ -42,6 +49,9 @@
 * CSS   
 * Bootstrap  
 * JQuery
+  練習使用JQuery讓網頁有互動性
+
+  [作品連結!](https://myfirstschool.azurewebsites.net/JavaScript/Temperature.html)
   
 ![image](https://raw.githubusercontent.com/zeroalan86/Front-end/master/image/Temperature.png)
 
@@ -53,6 +63,8 @@
 * CSS   
 * Bootstrap     
 * JQuery
+
+  [作品連結!](https://myfirstschool.azurewebsites.net/JavaScript/TaxRate.html)
 
 ![image](https://raw.githubusercontent.com/zeroalan86/Front-end/master/image/tax.png)
 
@@ -71,4 +83,7 @@
 * JavaScript  
 * JQuery    
   運用CSS Selecter來操作，並利用LocalStorage存取當天事項以及地點
+
+  [作品連結!](https://myfirstschool.azurewebsites.net/JavaScript/Schedule.html)
+
 ![image](https://raw.githubusercontent.com/zeroalan86/Front-end/master/image/schedule.png)
